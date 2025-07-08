@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>화면 공유 예제</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    video { width: 80%; border: 2px solid #333; margin-top: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <h1>화면 공유 시스템</h1>
+  <button id="shareBtn">화면 공유 시작</button>
+  <br />
+  <video id="screenVideo" autoplay playsinline muted></video>
+
+  <script>
+    const button = document.getElementById("shareBtn");
+    const video = document.getElementById("screenVideo");
+
+    button.addEventListener("click", async () => {
+      try {
+        const stream = await navigator.mediaDevices.getDisplayMedia({
+          video: true,
+          audio: false
+        });
+        video.srcObject = stream;
+
+        // 여기에 canvas 등을 활용해 분석 코드 추가 가능
+      } catch (err) {
+        console.error("화면 공유 실패:", err);
+        alert("화면 공유에 실패했습니다. 권한을 허용했는지 확인하세요.");
+      }
+    });
+  </script>
+
+</body>
+</html>
