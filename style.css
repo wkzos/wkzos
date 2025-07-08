@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 3em;
+}
+
+#alertBox {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: red;
+  font-weight: bold;
+}
+
+.target-alert {
+  background-color: yellow;
+  padding: 20px;
+  border: 2px solid orange;
+  margin-top: 2em;
+}
